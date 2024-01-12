@@ -21,6 +21,8 @@ class Userfixtures extends Fixture
             $users->setAge($faker->numberBetween(18, 99));
             $users->setTelephone($faker->e164PhoneNumber());
             $users->setAdresse($faker->email());
+
+            $manager->persist($users);
         endfor;
 
         $manager->flush();
