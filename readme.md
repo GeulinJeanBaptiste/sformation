@@ -1,5 +1,12 @@
 # FOAD Symfony
 
+## Activer TLS pour composer
+
+```
+composer config --global disable-tls true
+composer config --global secure-http false
+```
+
 ## Projet
 
 Réaliser un site web qui liste des formations.
@@ -77,4 +84,9 @@ symfony console make:controller
 ```
 
 - Ajouter Bootstrap 
+
+```
+composer require twbs/bootstrap:5.3.2
+```
+
 - Créer le template de la homepage
