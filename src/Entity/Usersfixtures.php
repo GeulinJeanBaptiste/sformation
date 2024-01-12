@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
+use App\Repository\UsersfixturesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: UsersRepository::class)]
-class Users
+#[ORM\Entity(repositoryClass: UsersfixturesRepository::class)]
+class Usersfixtures
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -14,13 +14,13 @@ class Users
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $nom = null;
+    private ?string $usersfixtures = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
+    private ?string $nom = null;
 
-    #[ORM\Column(length: 5)]
-    private ?string $age = null;
+    #[ORM\Column]
+    private ?int $age = null;
 
     #[ORM\Column]
     private ?int $telephone = null;
@@ -28,9 +28,24 @@ class Users
     #[ORM\Column(length: 255)]
     private ?string $adresse = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $roles = null;
+
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getUsersfixtures(): ?string
+    {
+        return $this->usersfixtures;
+    }
+
+    public function setUsersfixtures(string $usersfixtures): static
+    {
+        $this->usersfixtures = $usersfixtures;
+
+        return $this;
     }
 
     public function getNom(): ?string
@@ -45,24 +60,12 @@ class Users
         return $this;
     }
 
-    public function getPrenom(): ?string
-    {
-        return $this->prenom;
-    }
-
-    public function setPrenom(string $prenom): static
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    public function getAge(): ?string
+    public function getAge(): ?int
     {
         return $this->age;
     }
 
-    public function setAge(string $age): static
+    public function setAge(int $age): static
     {
         $this->age = $age;
 
@@ -89,6 +92,18 @@ class Users
     public function setAdresse(string $adresse): static
     {
         $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getRoles(): ?string
+    {
+        return $this->roles;
+    }
+
+    public function setRoles(string $roles): static
+    {
+        $this->roles = $roles;
 
         return $this;
     }
