@@ -12,9 +12,9 @@ class FormationFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
-        for($i=0; $i<=30; $i++):
+        for ($i = 0; $i <= 30; $i++) :
             $formation = new Formation();
-            $formation->setTitre($faker->words(3,true));
+            $formation->setTitre($faker->words(3, true));
             $formation->setResume($faker->sentence());
             $formation->setDescription($faker->paragraph());
             $formation->setDuree($faker->numberBetween(0, 365));
