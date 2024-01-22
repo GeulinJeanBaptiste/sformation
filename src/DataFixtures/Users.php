@@ -2,23 +2,23 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Usersfixtures;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
 
-class Userfixtures extends Fixture
+class Users extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create('fr_FR');
         for ($i = 0; $i <= 5; $i++) :
-            $users = new Usersfixtures();
+            $users = new User();
             $users->setNom($faker->lastName());
-            $users->setUsersfixtures($faker->firstName());
+            $users->setPrenom($faker->firstName());
             $users->setAge($faker->numberBetween(18, 99));
-            $users->setTelephone($faker->e164PhoneNumber());
-            $users->setAdresse($faker->email());
+            $users->setEmail($faker->email());
+            $users->setPassword($faker->password(8, 12));
             $manager->persist($users);
         endfor;
 
